@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login For Library System</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <h1>Admin</h1>
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">User_ID :</th>
+          <th scope="col">Name :</th>
+          <th scope="col">Fine :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < query.length; i++) {%>
+
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= query[i].User_ID %></td>
+          <td><%= query[i].First_Name +' '+ query[i].Last_Name%></td>
+          <td><%= query[i].fine %></td>
+        </tr>
+
+        <% } %>
+      </tbody>
+    </table>
+    <form action="/ban" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label label"
+          >User_ID to ban</label
+        >
+        <input
+          type="text"
+          class="form-control textbox"
+          id="exampleFormControlInput1"
+          placeholder="User_ID to Ban"
+          name="toban"
+        />
+        <button type="submit" class="btn btn-success">Success</button>
+      </div>
+    </form>
+  </body>
+</html>
